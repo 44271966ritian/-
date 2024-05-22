@@ -1,0 +1,6 @@
+#服务名称和开发环境选择
+spring:
+  application:
+    name: service
+  profiles:
+    active: dev

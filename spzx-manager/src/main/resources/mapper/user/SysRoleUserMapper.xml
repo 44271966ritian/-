@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.atguigu.spzx.manager.mapper.SysRoleUserMapper">
+
+    <!--1.根据用户id删除角色数据-->
+    <delete id="deleteByUserId">
+        delete from sys_user_role where user_id=#{userId}
+    </delete>
+
+
+    <!--2.为用户重新分配角色-->
+    <insert id="doAssign">
+        insert into sys_user_role(user_id , role_id , create_time , update_time , is_deleted)
+        values (#{userId},#{roleId},now(),now(),0)
+    </insert>
+
+    <!--3.根据userId得到用户分配的角色列表-->
+    <select id="selectRoleIdsByUserId" resultType="long">
+        select role_id from sys_user_role where user_id = #{userId}
+    </select>
+</mapper>
