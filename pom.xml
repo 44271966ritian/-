@@ -41,6 +41,7 @@
 
     <!-- 管理依赖，版本锁定 -->
     <dependencyManagement>
+
         <dependencies>
             <!-- mybatis和spring boot整合的起步依赖 -->
             <dependency>
